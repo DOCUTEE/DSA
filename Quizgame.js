@@ -18,9 +18,14 @@ function resetPractice(){
 }
 function createQuestion(){
       arr = [];
-      for(var i = 0 ; i < 4; i++)                  
-      { 
-            arr.push(quangdb.aWordStartWith(String.fromCharCode(rand(97,122))));
+      for(var i = 0 ; i < 4; i++){
+            if (modePractice == 3){
+                        arr.push(arrqq[rand(0,arrqq.length)]);
+            }        
+            else                   
+            {      
+                  arr.push(quangdb.aWordStartWith(String.fromCharCode(rand(97,122))));
+            }
       }
       x = rand(0,3);
       arrqq.push(arr[x]);
@@ -56,7 +61,11 @@ document.getElementById("user-reply").addEventListener("keydown",function(event)
                               createQuestion();
                         }
                   }                  
-                  if (times == 0) window.alert("End game!");
+                  if (times == 0) {
+                        window.alert("End game!")
+                        resetPractice();
+                        learn();
+                  }
             }
             else 
             if (modePractice == 2){
@@ -76,8 +85,22 @@ document.getElementById("user-reply").addEventListener("keydown",function(event)
                               window.alert("You lost ! New record is " + count);
                               maximum = count;
                         }
-                        else window.alert("You lost ! Your score is " + count);           
-                  }      
+                        else window.alert("You lost ! Your score is " + count);    
+                        resetPractice();       
+                  }     
+            } 
+            else if (modePractice ==3) {
+                  if (times > 0)
+                  {
+                        if (ans != ""){
+                              times--;
+                              printResult(check(x,ans));
+                              createQuestion();
+                        }
+                  }                  
+                  if (times == 0){
+                         window.alert("End game!");
+                         resetPractice();}
             }
             document.getElementById("user-reply").value = '';
       }
@@ -93,27 +116,11 @@ function printResult(check){
       }
 }
 function test(){
-      var count =0;
-      //var times = parseInt (window.prompt("Times?"));
-      var timess = times;
-      while (times-- > 0){
-            var arr = [];
-            for(var i = 0 ; i<4; i++)
-            { arr.push(arrqq[rand(0, arrqq.length-1)]);
-            }
-            var x = rand(0,3);
-            console.log("Nghia:" + quangdb.getMean(arr[x]));
-            console.log("A: " + arr[0]);
-            console.log("B: " + arr[1]);
-            console.log("C: " + arr[2]);
-            console.log("D: " + arr[3]);
-            var ans = window.prompt(" ");
-            if(check(x, ans)) count++; 
-      }
-            console.log("Your point is " + count + "/" + timess);
-            
+      modePractice = 3;
+      resetPractice();
+      setTime();
+      createQuestion();
 }
-
 
 function challenge(){
       count =0;

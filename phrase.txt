@@ -1,0 +1,26 @@
+a:The remote,are,in front of,the plane
+b:The girl,is,on the right of,the classroom
+c:The books,are,on the left of,the flag
+d:The books,are,in,the bag
+e:The remote,is,under,the flag
+f:The phone,on,the line
+g:The moon,is,between,the earth and the sun
+h:The kite,are,on,the flag
+i:The keys,under,the sun
+j:The sign,is,in front of,the coffee shop
+k:The book,are,on the left of,the plane
+l:The dog,on the right of,the queue
+m:The tiger,is,behind,the bush
+n:The kite,are,in front of,the bag
+o:She,is,at the back of,the queue
+p:The mouse,are,on the left of,the TV
+q:The kite,on the right of,the roof
+r:The kite,is,on,the roof
+s:The books,are,under,the table
+t:The mouse,in,the bag
+u:This table,is,busier,than,that table
+w:At a,dentist,you can,get your teeth checked
+v:This window,are,tidier,that building
+x:This castle,hotter,that window
+y:This maths,is,more difficult,than,that maths
+zfffff:This laptop,are,difficulter,that laptop

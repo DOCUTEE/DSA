@@ -162,3 +162,15 @@ main {
     padding: 5px 10px;
     cursor: pointer;
 }
+#problem-engmath{
+    display: grid;
+    grid-template-areas: "pic paragraph";
+    grid-template-columns: 30% 70%;
+}
+#problem{
+    grid-area: paragraph;
+}
+#brain-pic{
+    width: 400px;;
+    grid-area: pic;
+}

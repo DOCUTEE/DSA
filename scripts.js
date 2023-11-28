@@ -52,6 +52,7 @@ function setPointLimit(event){
             pointLimit = pointInput;
         }
         console.log(pointLimit);
+        window.alert("Đã set điểm giới hạn: " + pointLimit);
         document.getElementById("point-limit").value = '';
     }
 }

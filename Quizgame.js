@@ -1,4 +1,5 @@
-var quangdb = dictionary;
+var quangdb = new Dictionary();
+quangdb.init("word_define.txt");
 var timesChallenge = 3;
 function check(x, ans) {
       if (x== 0 && ans =="A") return true;
@@ -16,7 +17,7 @@ var count = 0;
 function showUserInput() {
       document.getElementById("user-reply").style.display = "block";
       document.getElementById("submit-button").style.display = "block";
-  }
+}
 function resetPractice(){
       document.getElementById("practice-container").textContent = '';
 }

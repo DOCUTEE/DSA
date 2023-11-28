@@ -14,6 +14,7 @@
             <button class="tablinks" onclick="openTab(event, 'MyVocabulary')">My Vocabulary</button>
             <button class="tablinks" onclick="openTab(event, 'Practice')">Practice</button>
             <button class="tablinks" onclick="openTab(event, 'Game')">Game</button>
+            <button class="tablinks" onclick="openTab(event, 'EngMath')">EngMath</button>
         </nav>
     </header>
     <div class="container">
@@ -57,7 +58,9 @@
             <button id="start-game" onclick="startGame()">Start</button>
             <button id="reset" onclick="resetGame()">Reset</button>
             <input type="number" id="point-limit" value onkeypress="setPointLimit(event)">
+            <span>User: </span>
             <span id="user-point">0</span>
+            <span>Bot: </span>
             <span id="bot-point">0</span>
             <div id="message-container">
 
@@ -65,6 +68,24 @@
             <input type="text" id="message-input" placeholder="Nhập tin nhắn..." onkeydown="handleKeyPress(event)">
             <button onclick="handleKeyPress(event,true)">Send</button>
 
+        </div>
+        <div id="EngMath" class="tabcontent">
+            <h2>EngMath</h2>
+            
+            <div id = "problem-engmath">
+                <img src="brain_bad.png" alt="brain-pic" id="brain-pic">
+                <div>
+                    <button onclick="createEngMath()">Start</button>
+                    <div id = "engmath">
+                        
+                    </div>
+                    <div>
+                        <form id = "choice-container">
+                        </form>
+                    </div>
+                    <button onclick="notificationResult()">Kiểm tra</button>
+                </div>
+            </div>
         </div>
     </div>
     <script src="./Dictionary.js"></script>
@@ -75,7 +96,8 @@
     <script src="./GameChat.js"></script>
     <script src="./FuncQuizGame.js"></script>
     <script src="./CallQuizGame.js"></script>
-    <script src="./scripts.js"></script>
+    <script src="./scripts.js"></script>   
+    <script src="./engmathProblem.js"></script> 
 </body>
 
 </html>

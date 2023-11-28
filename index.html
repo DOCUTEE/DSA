@@ -32,28 +32,34 @@
         <div id="Practice" class="tabcontent">
             <h2>Practice</h2>
             <div>
-                <button onclick = "learn()" >Learn</button>
-                <button onclick = "challenge()">Challenge</button>
-                <button onclick = "test()">Test</button>
-                <button onclick = "resetPractice()">Reset</button>
+                <button onclick="learn()">Learn</button>
+                <button onclick="challenge()">Challenge</button>
+                <button onclick="test()">Test</button>
+                <button id="phrase-button">Phrase</button>
+                <div id="container-div" style="display: none;">
+                    <div id="phrase-container"></div>
+                    <button id="submit-button">Submit</button>
+                    <p id="result-message"></p>
+                </div>
+                <button onclick="resetPractice()">Reset</button>
             </div>
-            <div id = "practice-container">
-            
+            <div id="practice-container">
+
             </div>
-            <input id = "user-reply" placeholder="Nhập câu trả lời" value>
-            <button id = "submit-button">Submit</button>
+            <input id="user-reply" placeholder="Nhập câu trả lời" value>
+            <button id="submit-button">Submit</button>
 
         </div>
 
         <div id="Game" class="tabcontent">
             <h2>Game</h2>
 
-            <button id = "start-game" onclick = "startGame()">Start</button>
-            <button id = "reset" onclick = "resetGame()">Reset</button>
-            <input type="number" id = "point-limit" value onkeypress="setPointLimit(event)">
-            <span id = "user-point" >0</span>
-            <span id = "bot-point" >0</span>
-            <div id = "message-container">
+            <button id="start-game" onclick="startGame()">Start</button>
+            <button id="reset" onclick="resetGame()">Reset</button>
+            <input type="number" id="point-limit" value onkeypress="setPointLimit(event)">
+            <span id="user-point">0</span>
+            <span id="bot-point">0</span>
+            <div id="message-container">
 
             </div>
             <input type="text" id="message-input" placeholder="Nhập tin nhắn..." onkeydown="handleKeyPress(event)">
@@ -63,11 +69,12 @@
     </div>
     <script src="./Dictionary.js"></script>
     <script src="./Bot.js"></script>
-    <script src="./Repo.js"></script>
-    <script src="./FunctionDic.js"></script>
+    <script src="./FuncDictionary.js"></script>
+    <script src="./CallFuncDictionary.js"></script>
     <script src="./Player.js"></script>
     <script src="./GameChat.js"></script>
-    <script src="./Quizgame.js"></script>
+    <script src="./FuncQuizGame.js"></script>
+    <script src="./CallQuizGame.js"></script>
     <script src="./scripts.js"></script>
 </body>
 

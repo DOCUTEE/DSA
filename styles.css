@@ -137,3 +137,23 @@ main {
     width: 300px;
     align-self: center;
 }
+
+.phrase-box {
+    display: inline-block;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.selected {
+    background-color: rgb(173, 210, 230);
+}
+
+
+#submit-button {
+    margin-top: 10px;
+    padding: 5px 10px;
+    cursor: pointer;
+}

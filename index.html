@@ -34,22 +34,29 @@
         <div id="Practice" class="tabcontent">
             <h2>Practice</h2>
             <div>
+                <button onclick="phrase.displayy()" id="phrase-button">Phrase</button>
                 <button onclick="learn()">Learn</button>
                 <button onclick="challenge()">Challenge</button>
                 <button onclick="test()">Test</button>
+                <button onclick="resetPractice()">Reset</button>
 
-                <button onclick="phrase.displayy()" id="phrase-button">Phrase</button>
+                <!-- okkkkkkkkkkk -->
                 <div id="container-div" style="display: none;">
                     <div id="phrase-container"></div>
                     <button onclick="phrase.submitt()" id="submitt-button">Submit</button>
                     <p id="result-message"></p>
                 </div>
-                <button onclick="resetPractice()">Reset</button>
+
+                <div id="box-practice" style="display: none;">
+
+                    <div id="practice-container"></div>
+                    <input type="text" id="user-reply" placeholder="Nhập câu trả lời" value>
+                    <button id="submit-buttonnn" onclick="dictionaryApp.submitPractice()">Submit</button>
+
+                </div>
+
+
             </div>
-            <div id="practice-container">
-            </div>
-            <input id="user-reply" placeholder="Nhập câu trả lời" value>
-            <button id="submit-button">Submit</button>
 
         </div>
 

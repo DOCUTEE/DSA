@@ -12,7 +12,6 @@ var modePractice = 1;
 //3: test
 
 document.getElementById("user-reply").addEventListener("keydown", function (event) {
-
     if (event.key == "Enter") {
         console.log(modePractice);
         var ans = document.getElementById("user-reply").value;
@@ -57,8 +56,6 @@ document.getElementById("user-reply").addEventListener("keydown", function (even
             if (times > 0) {
                 if (checkInput(ans)) {
                     times--;
-
-
                 }
 
             }
@@ -73,23 +70,4 @@ document.getElementById("user-reply").addEventListener("keydown", function (even
 });
 
 
-var ranPhrase = new Dictionary();
-ranPhrase.init("phrase.txt");
-var tmpp = ranPhrase.findWord('z');
-
-console.log(tmpp);
-
-
-var s = 'Where, are, you, from, ';
-
-var arrAns = getPhraseToArr(s);
-var ranAns = randomPhrase(arrAns);
-
-var container = document.getElementById('phrase-container');
-var submitButton = document.getElementById('submit-button');
-var resultMessage = document.getElementById('result-message');
-var indexSwap = [];
-document.getElementById('phrase-button').addEventListener('click', phrase);
-updatePhrase();
-submitButton.addEventListener('click', handleSubmit);
-
+var phrase = new PhraseGame();

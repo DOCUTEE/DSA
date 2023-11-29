@@ -21,13 +21,14 @@
         <div id="MyVocabulary" class="tabcontent">
             <h2>My Vocabulary</h2>
             <div class="search-container">
-                <input type="text" id="input" placeholder="Search...">
-                <button id="searchButton">Tra từ</button>
-                <button id="insertButton">Save</button>
+                <input type="text" id="input" placeholder="Search..."
+                    onkeyup="if (event.key === 'Enter') displaySearch()">
+                <button onclick="displaySearch()" id="searchButton">Tra từ</button>
+                <button onclick="insertVocab()" id="insertButton">Save</button>
                 <ul id="autocompleteList" class="list"></ul>
 
             </div>
-            <div id="result" class="result-container"></div>
+            <div id="resultDic" class="result-container"></div>
         </div>
 
         <div id="Practice" class="tabcontent">
@@ -36,16 +37,16 @@
                 <button onclick="learn()">Learn</button>
                 <button onclick="challenge()">Challenge</button>
                 <button onclick="test()">Test</button>
-                <button id="phrase-button">Phrase</button>
+
+                <button onclick="phrase.displayy()" id="phrase-button">Phrase</button>
                 <div id="container-div" style="display: none;">
                     <div id="phrase-container"></div>
-                    <button id="submit-button">Submit</button>
+                    <button onclick="phrase.submitt()" id="submitt-button">Submit</button>
                     <p id="result-message"></p>
                 </div>
                 <button onclick="resetPractice()">Reset</button>
             </div>
             <div id="practice-container">
-
             </div>
             <input id="user-reply" placeholder="Nhập câu trả lời" value>
             <button id="submit-button">Submit</button>
@@ -71,23 +72,23 @@
         </div>
         <div id="EngMath" class="tabcontent">
             <h2>EngMath</h2>
-            
-            <div id = "problem-engmath">
+
+            <div id="problem-engmath">
                 <img src="brain_bad.png" alt="brain-pic" id="brain-pic">
                 <div>
                     <button onclick="createEngMath()">Start</button>
                     <button onclick="hint()">Hint 💡</button>
                     <button onclick="showResult()">Result ✅</button>
-                    <div id = "engmath">
-                        
+                    <div id="engmath">
+
                     </div>
                     <div>
-                        <form id = "choice-container">
+                        <form id="choice-container">
                         </form>
                     </div>
                     <button onclick="notificationResult()">Give pills for Quang</button>
-                    <div id = "result">
-                        
+                    <div id="result">
+
                     </div>
                 </div>
             </div>
@@ -101,8 +102,8 @@
     <script src="./GameChat.js"></script>
     <script src="./FuncQuizGame.js"></script>
     <script src="./CallQuizGame.js"></script>
-    <script src="./scripts.js"></script>   
-    <script src="./engmathProblem.js"></script> 
+    <script src="./scripts.js"></script>
+    <script src="./engmathProblem.js"></script>
 </body>
 
 </html>

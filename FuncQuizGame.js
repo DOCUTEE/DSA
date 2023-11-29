@@ -1,3 +1,12 @@
+function displayQuiz() {
+      document.getElementById('container-div').style.display = 'none';
+      var boxQuiz = document.getElementById('box-practice');
+
+      if (boxQuiz.style.display === 'none')
+            boxQuiz.style.display = 'block';
+
+}
+
 function check(x, ans) {
       if (x == 0 && ans == "a") return true;
       else if (x == 1 && ans == "b") return true;
@@ -13,7 +22,8 @@ function checkInput(ans) {
 
 }
 function resetPractice() {
-      document.getElementById("practice-container").textContent = '';
+
+      document.getElementById('practice-container').textContent = '';
 }
 
 function printResult(check) {
@@ -51,6 +61,7 @@ function setTime() {
 }
 
 function test() {
+      displayQuiz()
       modePractice = 3;
       resetPractice();
       setTime();
@@ -58,6 +69,7 @@ function test() {
 }
 
 function challenge() {
+      displayQuiz()
       count = 0;
       modePractice = 2;
 
@@ -67,6 +79,7 @@ function challenge() {
 }
 
 function learn() {
+      displayQuiz()
       modePractice = 1;
       resetPractice();
       setTime();
@@ -119,6 +132,7 @@ class PhraseGame {
       }
 
       displayy() {
+            document.getElementById('box-practice').style.display = 'none';
             var containerDiv = document.getElementById('container-div');
             if (containerDiv.style.display === 'none') {
                   containerDiv.style.display = 'block';

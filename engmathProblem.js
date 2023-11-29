@@ -45,6 +45,13 @@ function createEngMath(){
       }
       res = bestOption();
 }
+function shuffle(array){
+      for(var i = 0; i < array.length; i++){
+            var j = rand(0,array.length-1);
+            [array[i], array[j]] =[array[j],array[i]];
+      }
+      return array;
+}
 //Hàm tạo các option đề người dùng lựa chọn
 function createChoice(index){
       var option = document.createElement("input");
@@ -68,6 +75,7 @@ function createChoice(index){
             wr.className = 'wrong';
             choices[index].push(wr);
       }
+      choices[index] = shuffle(choices[index]);
       for(var i = 0; i < choices[index].length; i++){
             labelOption.appendChild(choices[index][i]);
       }
@@ -103,6 +111,7 @@ function notificationResult(){
 }
 var dp = [];
 var trueOption = [];
+//Dynamic Programming for find best option
 function bestOption(){
       dp = [];
       for(var i = 0; i <= numberOfPill; i++){
@@ -119,6 +128,7 @@ function bestOption(){
       console.log(dp);
       return dp[numberOfPill][rememberLimit];
 }
+//Tracing BestOptions
 function traceOption(){
       trueOption = [];
       var j = rememberLimit;
@@ -130,6 +140,7 @@ function traceOption(){
       }
       console.log(trueOption);
 }
+//hint
 function hint(){
       var wr = document.getElementsByClassName("wrong");
       for (var i = 0; i < wr.length; i++) {
@@ -140,6 +151,7 @@ function hint(){
             cr[i].style.color = "green";
       }
 }
+//showResult
 function showResult(){
       traceOption();
       hint();

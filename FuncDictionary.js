@@ -16,10 +16,10 @@ function searchDefine() {
   }
 }
 
-function display() {
+function displaySearch() {
   var vocab = document.getElementById("input").value.toLowerCase();
   var definition = searchDefine(vocab);
-  result.innerHTML = `<p><strong>${vocab}:</strong> ${definition}</p>`;
+  resultDic.innerHTML = `<p><strong>${vocab}:</strong> ${definition}</p>`;
 }
 
 function insertVocab() {
@@ -43,6 +43,7 @@ function handleInput() {
         listItem.addEventListener("click", function () {
           document.getElementById("input").value = suggestion;
           removeElements('autocompleteList');
+          displaySearch();
         });
       });
   } catch (error) {

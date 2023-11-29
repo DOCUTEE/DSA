@@ -73,88 +73,165 @@ function learn() {
       createQuestion();
 }
 
+class PhraseGame {
 
-function getPhraseToArr(s) {
-      var arr = [];
-      var tmp = '';
-      for (var i = 0; i < s.length; i++) {
-            if (s[i] == ',') {
-                  arr.push(tmp.trim());
-                  tmp = '';
-            } else {
-                  tmp += s[i];
+      constructor() {
+            this.container = document.getElementById('phrase-container');
+            this.aSetOfPhrase = [];
+            this.aPhrase = "";
+
+            this.times = 5;
+            this.index = 0;
+
+            this.indexSwap = [];
+            this.ansPhrase = [];
+            this.randPhrase = [];
+            this.initt();
+      }
+
+      initt() {
+            this.phrases = [
+                  ///Likes
+                  [
+                        "He, doesn't, like, paying, money,",
+                        "She, likes, giving, gifts,",
+                        "They, like, listening, to, music,",
+                        "He, likes, playing, the, drums,",
+                        "They, don't, like, maths,"
+                  ],
+                  /// Compare
+                  [
+                        "Gorillas, are, stronger, than, monkeys,",
+                        "The river, is, wider, than, the road,",
+                        "The digger, is, noiser, than, the spade,",
+                        "Computer games, are, more, interesting, than, homework,",
+                        "Cats, are, safer, than, tigers,"
+                  ],
+                  ///Places
+                  [
+                        "In, a hair salon, you, can, get, a haircut,",
+                        "At, a florist, you, can, buy, flowers,",
+                        "In, a stadium, you, can, watch, sports,",
+                        "In, a convenience, store, you, can buy, a newspaper,",
+                        "At, a bus stop, you , can, catch, a bus,",
+                  ]
+            ];
+      }
+
+      displayy() {
+            var containerDiv = document.getElementById('container-div');
+            if (containerDiv.style.display === 'none') {
+                  containerDiv.style.display = 'block';
+
+                  this.getASetOfPhrase();
+                  this.getAPhrase();
+                  this.getPhraseToArr();
+                  this.mixPhrase();
+                  this.updatePhrase();
+            }
+            else {
+                  this.container.innerHTML = '';
+                  document.getElementById('result-message').textContent = '';
+                  containerDiv.style.display = 'none';
+                  this.index = 0;
             }
       }
-      return arr;
-}
 
-function randomPhrase(arrInput) {
-      var arr = arrInput.slice();
-      for (let i = arr.length - 1; i > 0; i--) {
-            var j = Math.floor(Math.random() * (i + 1));
-            [arr[i], arr[j]] = [arr[j], arr[i]];
+      getASetOfPhrase() {
+            var tmp = rand(0, 2);
+            console.log(tmp);
+            console.log(this.phrases[tmp]);
+            this.aSetOfPhrase = this.phrases[tmp];
       }
-      return arr;
-}
 
+      getAPhrase() {
+            this.aPhrase = this.aSetOfPhrase[this.index];
+            this.index++;
+      }
 
-
-function handleSubmit() {
-      for (let i = 0; i < arrAns.length; i++) {
-            if (arrAns[i] !== ranAns[i]) {
-                  resultMessage.textContent = 'Wrong!!!';
-                  return;
+      getPhraseToArr() {
+            this.randPhrase = [];
+            this.ansPhrase = [];
+            var tmp = '';
+            for (let i = 0; i < this.aPhrase.length; i++) {
+                  if (this.aPhrase[i] == ',') {
+                        this.ansPhrase.push(tmp);
+                        tmp = '';
+                  } else {
+                        tmp += this.aPhrase[i];
+                  }
             }
       }
-      setTimeout(function () {
-            resultMessage.textContent = 'Exactly!!!';
-            
-      }, 500);
-}
 
+      mixPhrase() {
 
-function handleSwap(i) {
-      indexSwap.push(i);
-      updatePhrase();
-      if (indexSwap.length == 2) {
-            setTimeout(function () {
-                  [ranAns[indexSwap[0]], ranAns[indexSwap[1]]] = [ranAns[indexSwap[1]], ranAns[indexSwap[0]]];
-                  indexSwap = [];
-                  updatePhrase();
-            }, 100);
-      }
-};
-
-function updatePhrase() {
-      container.innerHTML = '';
-      resultMessage.textContent = '';
-
-      for (var i = 0; i < ranAns.length; i++) {
-            var phraseBox = document.createElement('div');
-            phraseBox.classList.add('phrase-box');
-            phraseBox.textContent = ranAns[i];
-
-            if (indexSwap.includes(i)) {
-                  phraseBox.classList.add('selected');
+            this.randPhrase = this.ansPhrase.slice();
+            for (let i = this.randPhrase.length - 1; i > 0; i--) {
+                  var j = Math.floor(Math.random() * (i));
+                  [this.randPhrase[i], this.randPhrase[j]] = [this.randPhrase[j], this.randPhrase[i]];
             }
-            container.appendChild(phraseBox);
-            (function (index) {
-                  phraseBox.addEventListener('click', function () {
-                        handleSwap(index);
-                  });
-            }(i));
+
       }
+
+
+
+      swapp(i) {
+            this.indexSwap.push(i);
+            this.updatePhrase();
+            if (this.indexSwap.length == 2) {
+                  setTimeout(() => {
+                        [this.randPhrase[this.indexSwap[0]], this.randPhrase[this.indexSwap[1]]] = [this.randPhrase[this.indexSwap[1]], this.randPhrase[this.indexSwap[0]]];
+                        this.indexSwap = [];
+                        this.updatePhrase();
+                  }, 100);
+            }
+      }
+
+
+      updatePhrase() {
+            this.container.innerHTML = '';
+            document.getElementById('result-message').textContent = '';
+
+            for (let i = 0; i < this.randPhrase.length; i++) {
+
+                  var phraseBox = document.createElement('div');
+                  phraseBox.classList.add('phrase-box');
+                  phraseBox.textContent = this.randPhrase[i];
+
+                  if (this.indexSwap.includes(i)) {
+                        phraseBox.classList.add('selected');
+                  }
+                  this.container.appendChild(phraseBox);
+                  phraseBox.addEventListener('click', () => this.swapp(i));
+            }
+      }
+
+
+      submitt() {
+            for (let i = 0; i < this.randPhrase.length; i++) {
+                  if (this.randPhrase[i] !== this.ansPhrase[i]) {
+                        document.getElementById('result-message').textContent = "Wrong!!!";
+                        return;
+                  }
+            }
+            document.getElementById('result-message').textContent = "Exactly!!!";
+            setTimeout(() => {
+                  if (this.index == 5) {
+                        window.alert("End game!");
+                        this.displayy();
+                  }
+                  else {
+                        this.getAPhrase();
+                        this.getPhraseToArr();
+                        this.mixPhrase();
+                        this.updatePhrase();
+                  }
+            }, 300);
+      }
+
 }
 
 
-function phrase() {
-     // setTime();
-      var containerDiv = document.getElementById('container-div');
-      if (containerDiv.style.display === 'none')
-            containerDiv.style.display = 'block';
-      else
-            containerDiv.style.display = 'none';
-}
 
 
 

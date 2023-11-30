@@ -22,13 +22,18 @@ document.getElementById("user-reply").addEventListener("keydown", function (even
                     times--;
                     printResult(check(x, ans));
                     createQuestion();
+
                 }
 
             }
             if (times == 0) {
-                window.alert("End game!")
-                resetPractice();
-                // learn();
+                printResult(check(x, ans));
+
+                setTimeout(function () {
+                    window.alert("End game!");
+                    resetPractice();
+                    // learn();
+                }, 100);
             }
         }
         else if (modePractice == 2) {
@@ -44,24 +49,38 @@ document.getElementById("user-reply").addEventListener("keydown", function (even
 
             }
             if (timesChallenge == 0) {
-                if (count > maximum) {
-                    window.alert("You lost ! New record is " + count);
-                    maximum = count;
-                }
-                else window.alert("You lost ! Your score is " + count);
-                resetPractice();
+
+                printResult(check(x, ans));
+                setTimeout(function () {
+                    if (count > maximum) {
+                        window.alert("You lost ! New record is " + count);
+                        maximum = count;
+                    }
+
+                    else
+                        window.alert("You lost ! Your score is " + count);
+                    resetPractice();
+                }, 100);
             }
         }
         else if (modePractice == 3) {
             if (times > 0) {
                 if (checkInput(ans)) {
                     times--;
+                    printResult(check(x, ans));
+                    createQuestion();
                 }
+
+
 
             }
             if (times == 0) {
-                window.alert("End game!");
-                resetPractice();
+                printResult(check(x, ans));
+                setTimeout(() => {
+                    window.alert("End game!");
+                    resetPractice();
+                }, 100);
+
             }
         }
         document.getElementById("user-reply").value = '';

@@ -1,13 +1,13 @@
 DICTIONARY APP
 Member:
-+ Nguyen Quoc Thinh
-+ Tran Quoc Huy
-+ Nguyen Minh Quang
++ Nguyen Quoc Thinh(product manager)
++ Nguyen Quoc Huy(intern)
++ Nguyen Minh Quang(intern)
 Features:
   - My vocabulary
     + Search
     + Suggest Word
-    + Save word
+    + Insert word
   - Practice
     + Phrase
     + Learn

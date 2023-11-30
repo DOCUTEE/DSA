@@ -21,10 +21,10 @@
         <div id="MyVocabulary" class="tabcontent">
             <h2>My Vocabulary</h2>
             <div class="search-container">
-                <input type="text" id="input" placeholder="Search..."
+                <input class = "thinhdb" type="text" id="input" placeholder="Search..."
                     onkeyup="if (event.key === 'Enter') displaySearch()">
-                <button onclick="displaySearch()" id="searchButton">Tra từ</button>
-                <button onclick="insertVocab()" id="insertButton">Save</button>
+                <button class="quangdb" onclick="displaySearch()" id="searchButton">Tra từ</button>
+                <button class="quangdb" onclick="insertVocab()" id="insertButton">Save</button>
                 <ul id="autocompleteList" class="list"></ul>
 
             </div>
@@ -34,24 +34,24 @@
         <div id="Practice" class="tabcontent">
             <h2>Practice</h2>
             <div>
-                <button onclick="phrase.displayy()" id="phrase-button">Phrase</button>
-                <button onclick="learn()">Learn</button>
-                <button onclick="challenge()">Challenge</button>
-                <button onclick="test()">Test</button>
-                <button onclick="resetPractice()">Reset</button>
+                <button class="quangdb" onclick="phrase.displayy()" id="phrase-button">Phrase</button>
+                <button class="quangdb" onclick="learn()">Learn</button>
+                <button class="quangdb" onclick="challenge()">Challenge</button>
+                <button class="quangdb" onclick="test()">Test</button>
+                <button class="quangdb" onclick="resetPractice()">Reset</button>
 
                 <!-- okkkkkkkkkkk -->
                 <div id="container-div" style="display: none;">
                     <div id="phrase-container"></div>
-                    <button onclick="phrase.submitt()" id="submitt-button">Submit</button>
+                    <button class="quangdb" onclick="phrase.submitt()" id="submitt-button">Submit</button>
                     <p id="result-message"></p>
                 </div>
 
                 <div id="box-practice" style="display: none;">
 
                     <div id="practice-container"></div>
-                    <input type="text" id="user-reply" placeholder="Nhập câu trả lời" value>
-                    <button id="submit-buttonnn" onclick="dictionaryApp.submitPractice()">Submit</button>
+                    <input class = "thinhdb" type="text" id="user-reply" placeholder="Answer..." value>
+                    <button class="quangdb" id="submit-buttonnn" onclick="dictionaryApp.submitPractice()">Submit</button>
 
                 </div>
 
@@ -63,9 +63,9 @@
         <div id="Game" class="tabcontent">
             <h2>Game</h2>
 
-            <button id="start-game" onclick="startGame()">Start</button>
-            <button id="reset" onclick="resetGame()">Reset</button>
-            <input type="number" id="point-limit" value onkeypress="setPointLimit(event)">
+            <button class="quangdb" id="start-game" onclick="startGame()">Start</button>
+            <button class="quangdb" id="reset" onclick="resetGame()">Reset</button>
+            <input class = "thinhdb" type="number" id="point-limit" value onkeypress="setPointLimit(event)">
             <span>User: </span>
             <span id="user-point">0</span>
             <span>Bot: </span>
@@ -73,8 +73,8 @@
             <div id="message-container">
 
             </div>
-            <input type="text" id="message-input" placeholder="Nhập tin nhắn..." onkeydown="handleKeyPress(event)">
-            <button onclick="handleKeyPress(event,true)">Send</button>
+            <input class = "thinhdb" type="text" id="message-input" placeholder="Nhập tin nhắn..." onkeydown="handleKeyPress(event)">
+            <button class="quangdb" onclick="handleKeyPress(event,true)">Send</button>
 
         </div>
         <div id="EngMath" class="tabcontent">
@@ -83,9 +83,9 @@
             <div id="problem-engmath">
                 <img src="brain_bad.png" alt="brain-pic" id="brain-pic">
                 <div id = "problem">
-                    <button onclick="createEngMath()">Start</button>
-                    <button onclick="hint()">Hint 💡</button>
-                    <button onclick="showResult()">Result ✅</button>
+                    <button class="quangdb" onclick="createEngMath()">Start</button>
+                    <button class="quangdb" onclick="hint()">Hint 💡</button>
+                    <button class="quangdb" onclick="showResult()">Result ✅</button>
                     <div id="engmath">
 
                     </div>
@@ -93,7 +93,7 @@
                         <form id="choice-container">
                         </form>
                     </div>
-                    <button onclick="notificationResult()">Give pills for Quang</button>
+                    <button class="quangdb" onclick="notificationResult()">Give pills for Quang</button>
                     <div id="result">
 
                     </div>

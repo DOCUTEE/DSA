@@ -29,14 +29,20 @@ function handleKeyPress(event,check = false) {
             match.update(message,true);
             addDivToContainer(message + ' :' + user.name,"message-container",'USER'); 
             messageInput.value = "";
-            if (match.userPoint > match.pointLimit) window.alert(match.user.name + " is Winner");
+            if (match.userPoint > match.pointLimit) {
+                window.alert(match.user.name + " is Winner");
+                resetGame();
+            }
             else
             {
                 //Bot play
                 var temp = match.bot.aWord(String.fromCharCode(match.currentWord.charCodeAt(match.currentWord.length-1)));
                 match.update(temp, false);//update match points
                 addDivToContainer(bot.name + ': '+ match.currentWord, 'message-container','BOT'); 
-                if (match.botPoint > match.pointLimit) window.alert(match.bot.name + " is Winner");
+                if (match.botPoint > match.pointLimit){
+                    window.alert(match.bot.name + " is Winner");
+                    resetGame();
+                }
             }
         }
         messageInput.value = '';

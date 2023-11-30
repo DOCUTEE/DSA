@@ -25,6 +25,7 @@ var choices = [];
 var res;
 //Hàm tạo cốt truyện và đề bài
 function createEngMath(){
+      document.getElementById("brain-pic").src = "./brain_bad.png";
       document.getElementById('choice-container').textContent = '';
       rememberLimit = rand(20,25);
       numberOfPill = rand(5,7);
@@ -76,12 +77,15 @@ function createChoice(index){
             choices[index].push(wr);
       }
       choices[index] = shuffle(choices[index]);
+      var numberC = document.createElement("span");
+      numberC.textContent = choices[index].length;
       for(var i = 0; i < choices[index].length; i++){
             labelOption.appendChild(choices[index][i]);
       }
       var choice = document.createElement("div");
       choice.appendChild(option);
       choice.appendChild(labelOption);
+      choice.appendChild(numberC);
       return choice;
 }
 //Hàm kiểm tra lựa chọn của người dùng đã tối ưu hay chưa ?

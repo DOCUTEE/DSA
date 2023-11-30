@@ -169,8 +169,10 @@ main {
 }
 #problem{
     grid-area: paragraph;
+    font-size: 27px;
 }
 #brain-pic{
-    width: 400px;;
+    width: 400px;
+    height: auto;
     grid-area: pic;
 }
